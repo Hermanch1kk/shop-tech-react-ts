@@ -1,5 +1,7 @@
 import { Link, Outlet } from "react-router-dom"
 import { AuthService } from "../services/auth.service";
+import Footer from "./products/Footer";
+
 
 const Layout=()=>{
     const logoutHandler=async ()=>{
@@ -7,7 +9,7 @@ const Layout=()=>{
     }
     return(
         <>
-        <header>
+        <header className="headermenu">
             <Link to={"/"}>Home</Link>
             <p className="divider"> | </p>
             <Link to={"/products"}>Products</Link>
@@ -17,11 +19,14 @@ const Layout=()=>{
             <Link to={"/login"}>Login</Link>
             <p className="divider"> | </p>
             <Link onClick={logoutHandler} to={"/"}>Logout</Link>
+            
 
         </header>
-        <main>
+        <main className="main1">
             <Outlet/>
         </main>
+
+        <Footer/>
         </>
     );
 }
