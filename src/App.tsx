@@ -7,6 +7,7 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 import Login from './components/accounts/Login';
 import CreateProduct from './components/products/CreateProduct';
+import EditProduct from './components/products/EditProduct';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="products" element={<ProductsList />} />
           <Route path="login" element={<Login />} />
           <Route path="create-product" element={<CreateProduct/>} />
+          <Route path="edit/:id" element={<EditProduct />}/>
         </Route>
       </Routes>
     </div>
