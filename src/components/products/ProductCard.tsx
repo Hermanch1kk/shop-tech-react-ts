@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { url } from "inspector";
 import noImage from "../../../src/assets/images/no-image.jpg"
+import { ProductService } from "../../services/products.service";
 // export default function ProductCard({ id, title, description, price, imagePath, categoryId, categoryName }: IProductDto) {
 //     return (
 //         <div> 
@@ -19,6 +20,10 @@ import noImage from "../../../src/assets/images/no-image.jpg"
 // }
 
 const ProductCard:React.FC<IProductDto>=({ id, title, description, price, imagePath, categoryId, categoryName })=> {
+  const onDelete = () => {
+    ProductService.delete(id);
+    window.location.reload();
+};
     return (
         <Card sx={{ height: '100%',maxWidth:240 }}>
         <CardMedia
@@ -39,7 +44,7 @@ const ProductCard:React.FC<IProductDto>=({ id, title, description, price, imageP
           </CardContent>
         <CardActions>
           <Button size="small">Details</Button>
-          <Button size="small">Add to Cart</Button>
+          <Button onClick={onDelete} size="small">Delete</Button>
         </CardActions>
       </Card>
    )

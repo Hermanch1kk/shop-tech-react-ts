@@ -20,5 +20,8 @@ export const ProductService={
     async create(product : ICreateProductDto) : Promise<void>
     {
         const result = await instance.post('products/create', product);
-    }
+    },
+    async delete(id: number): Promise<void> {
+        const result = await instance.delete(`products/${id}`);
+    },
 }
