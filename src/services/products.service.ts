@@ -27,6 +27,8 @@ export const ProductService={
         return await response.json();
     },
    
-   
+    async edit(product: IEditProductDto): Promise<void> {
+        const result = await instance.put("products/edit", product);
+    }
 
 }
