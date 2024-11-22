@@ -18,6 +18,8 @@ const Layout=()=>{
             <p className="divider"> | </p>
             <Link to={"/login"}>Login</Link>
             <p className="divider"> | </p>
+            <Link to={"/register"}>Register</Link>
+            <p className="divider"> | </p>
             <Link onClick={logoutHandler} to={"/"}>Logout</Link>
             
 
