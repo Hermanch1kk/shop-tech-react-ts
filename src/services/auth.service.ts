@@ -1,4 +1,4 @@
-import { instance } from "../api/axios.api"
+import  instance  from "../api/axios.api"
 import { removeTokenFromLocalStorage } from "../helper/localStorage.helper";
 import { ILoginDto, IRegisterDto } from "../types/user"
 

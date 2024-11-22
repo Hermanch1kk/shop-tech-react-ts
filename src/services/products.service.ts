@@ -1,4 +1,4 @@
-import { instance } from "../api/axios.api"
+import instance  from "../api/axios.api"
 import { ICreateProductDto, IProductDto,IEditProductDto } from "../types/product"
 
 // let headers={
@@ -22,6 +22,7 @@ export const ProductService={
     {
         const result = await instance.post('products/create', product);
     },
+    
     async getById(id: string | undefined) {
         const response = await fetch(`/api/products/${id}`);
         return await response.json();
