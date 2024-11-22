@@ -33,8 +33,8 @@ export default function EditProduct() {
     }, [id, setValue]);
 
     const onSubmit = async (product: IEditProductDto) => {
-        // await ProductService.edit(product); // Передбачається, що є метод update
-        // navigate("/products"); // Повернення до списку продуктів
+         await ProductService.edit(product); // Передбачається, що є метод update
+         navigate("/products"); // Повернення до списку продуктів
     };
 
     return (
