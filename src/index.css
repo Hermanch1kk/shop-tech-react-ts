@@ -12,12 +12,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.Login{
+.Login, .Registration {
   width: 60%;
   margin: auto;
 }
 
-.Login form{
+.Login form, .Registration form{
   display: flex;
   flex-direction: column;
   gap: 10px;

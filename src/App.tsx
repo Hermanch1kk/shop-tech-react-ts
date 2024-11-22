@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Login from './components/accounts/Login';
 import CreateProduct from './components/products/CreateProduct';
 import EditProduct from './components/products/EditProduct';
+import { Register } from './components/accounts/Register';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="products" element={<ProductsList />} />
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
           <Route path="create-product" element={<CreateProduct/>} />
           <Route path="edit/:id" element={<EditProduct />}/>
         </Route>
