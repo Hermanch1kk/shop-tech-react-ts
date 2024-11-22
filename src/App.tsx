@@ -7,6 +7,7 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 import Login from './components/accounts/Login';
 import CreateProduct from './components/products/CreateProduct';
+import EditProduct from './components/products/EditProduct';
 import { Register } from './components/accounts/Register';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="create-product" element={<CreateProduct/>} />
+          <Route path="edit/:id" element={<EditProduct />}/>
         </Route>
       </Routes>
     </div>

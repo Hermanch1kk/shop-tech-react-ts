@@ -8,7 +8,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { url } from "inspector";
 import noImage from "../../../src/assets/images/no-image.jpg"
+
 import { ProductService } from "../../services/products.service";
+
+
+import { useNavigate } from 'react-router-dom'
+
 // export default function ProductCard({ id, title, description, price, imagePath, categoryId, categoryName }: IProductDto) {
 //     return (
 //         <div> 
@@ -20,10 +25,16 @@ import { ProductService } from "../../services/products.service";
 // }
 
 const ProductCard:React.FC<IProductDto>=({ id, title, description, price, imagePath, categoryId, categoryName })=> {
+
   const onDelete = () => {
     ProductService.delete(id);
     window.location.reload();
 };
+    const navigate = useNavigate()
+    const handleEditClick = () =>
+    {
+      navigate(`/edit/${id}`)
+    }
     return (
         <Card sx={{ height: '100%',maxWidth:240 }}>
         <CardMedia
@@ -45,6 +56,8 @@ const ProductCard:React.FC<IProductDto>=({ id, title, description, price, imageP
         <CardActions>
           <Button size="small">Details</Button>
           <Button onClick={onDelete} size="small">Delete</Button>
+          <Button size="small">Add to Cart</Button>
+          <Button size="small" onClick={handleEditClick}>Edit</Button>
         </CardActions>
       </Card>
    )

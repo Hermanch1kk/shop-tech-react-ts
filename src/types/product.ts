@@ -15,6 +15,14 @@ export interface ICreateProductDto{
     imagePath: string;
     categoryId: number;
 }
+export interface IEditProductDto{
+    id:number;
+    title:string;
+    description?:string;
+    price: number;
+    imagePath: string;
+    categoryId: number;
+}
 
 // "id": 1,
 //     "title": "Ноутбук Acer Aspire 7 A715-42G-R7BK (NH.QE5EU.00L) Charcoal Black",
