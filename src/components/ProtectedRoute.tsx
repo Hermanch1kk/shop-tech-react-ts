@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import { getTokenFromLocalStorage } from "../helper/localStorage.helper"
 
-const ProtectedRoute=()=>{
+const ProtectedRoute:React.FC=()=>{
     const token=getTokenFromLocalStorage();
     if(!token){
         return(

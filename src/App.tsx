@@ -10,8 +10,10 @@ import CreateProduct from './components/products/CreateProduct';
 import EditProduct from './components/products/EditProduct';
 import { Register } from './components/accounts/Register';
 import ProtectedRoute from './components/ProtectedRoute';
+import Header from './components/Header';
 
 function App() {
+  
   return (
     <div className="App">
       <Routes>
@@ -20,7 +22,7 @@ function App() {
           <Route path="products" element={<ProductsList />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route element={<ProtectedRoute />}>
+          <Route element={<ProtectedRoute/>}>
             <Route path="create-product" element={<CreateProduct />} />
             <Route path="edit/:id" element={<EditProduct />} />
           </Route>
