@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom"
 import { AuthService } from "../services/auth.service";
 import { useAppDispatch, useAppSelector } from "../store/hook";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getTokenFromLocalStorage } from "../helper/localStorage.helper";
 import { logout } from "../store/slices/userSlice";
 
-const Header = () => {
+const Header: React.FC = () => {
 
-    // const isAuth=useAppSelector((state)=>state.user.isAuth)
-    const [token, setToken] = useState(getTokenFromLocalStorage());
+    // const [token, setToken] = useState(getTokenFromLocalStorage());
 
-     const isAuth = useAppSelector((state) => state.user.isAuth);
+    const isAuth = useAppSelector((state) => state.user.isAuth);
     const dispatch = useAppDispatch();
+    console.log(isAuth);
     const logoutHandler = async () => {
         await AuthService.logout();
         dispatch(logout());
@@ -39,9 +39,7 @@ const Header = () => {
             <p className="divider"> | </p>
             <Link to={"/register"}>Register</Link>
         </header>
-    );
-
-
+    )
 }
 
 

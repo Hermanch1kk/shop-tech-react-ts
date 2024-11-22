@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ProductsList from './components/products/ProductsList';
@@ -11,8 +11,36 @@ import EditProduct from './components/products/EditProduct';
 import { Register } from './components/accounts/Register';
 import ProtectedRoute from './components/ProtectedRoute';
 import Header from './components/Header';
+import { login, logout } from './store/slices/userSlice';
+import { getTokenFromLocalStorage } from './helper/localStorage.helper';
+import { useAppDispatch, useAppSelector } from './store/hook';
 
 function App() {
+  const dispatch = useAppDispatch();
+  const data = useAppSelector((state) => state.user.user)
+
+  const checkAuth = async () => {
+    const token = getTokenFromLocalStorage();
+    try {
+      if (token) {
+        if (data) {
+          dispatch(login(data));
+
+        }
+        else {
+          dispatch(logout());
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    checkAuth();
+
+
+  }, [])
   
   return (
     <div className="App">

@@ -5,8 +5,11 @@ import { ILoginDto } from "../../types/user";
 import { AuthService } from "../../services/auth.service";
 import { setTokenToLocalStorage } from "../../helper/localStorage.helper";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../store/hook";
+import { login } from "../../store/slices/userSlice";
 
 const Login: React.FC = () => {
+    const dispatch = useAppDispatch();
     //react-hook-form
     const  navigate=useNavigate();
     const {
@@ -23,6 +26,7 @@ const Login: React.FC = () => {
             if (token){
                 console.log(token);
                 setTokenToLocalStorage(token);
+                dispatch(login(user));
                 navigate("/products");
             }
         } catch (err: any) {
