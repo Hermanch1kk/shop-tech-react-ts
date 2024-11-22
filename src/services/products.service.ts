@@ -22,6 +22,9 @@ export const ProductService={
     {
         const result = await instance.post('products/create', product);
     },
+    async delete(id: number): Promise<void> {
+        const result = await instance.delete(`products/${id}`);
+    },
     async getById(id: string | undefined) {
         const response = await fetch(`/api/products/${id}`);
         return await response.json();
@@ -30,5 +33,4 @@ export const ProductService={
     async edit(product: IEditProductDto): Promise<void> {
         const result = await instance.put("products/edit", product);
     }
-
 }
