@@ -14,17 +14,18 @@ import Header from './components/Header';
 import { login, logout } from './store/slices/userSlice';
 import { getTokenFromLocalStorage } from './helper/localStorage.helper';
 import { useAppDispatch, useAppSelector } from './store/hook';
+import { useAuthUser } from './hooks/useAuthUser';
 
 function App() {
   const dispatch = useAppDispatch();
-  const data = useAppSelector((state) => state.user.user)
-
+  // const user = useAppSelector((state) => state.user.user)
+  const user = useAuthUser();
   const checkAuth = async () => {
     const token = getTokenFromLocalStorage();
     try {
       if (token) {
-        if (data) {
-          dispatch(login(data));
+        if (user) {
+          dispatch(login(user));
 
         }
         else {
@@ -38,10 +39,8 @@ function App() {
 
   useEffect(() => {
     checkAuth();
-
-
   }, [])
-  
+
   return (
     <div className="App">
       <Routes>
@@ -50,7 +49,7 @@ function App() {
           <Route path="products" element={<ProductsList />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route element={<ProtectedRoute/>}>
+          <Route element={<ProtectedRoute />}>
             <Route path="create-product" element={<CreateProduct />} />
             <Route path="edit/:id" element={<EditProduct />} />
           </Route>

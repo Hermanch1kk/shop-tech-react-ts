@@ -12,7 +12,7 @@ export const instance = axios.create({
 });
 
 
-// Додати перехоплювач запиту => який до кожного запиту додасть token із loaclStorage
+// Додати перехоплювач запиту => який до кожного запиту додасть token із localStorage
 instance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
