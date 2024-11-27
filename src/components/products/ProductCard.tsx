@@ -55,8 +55,8 @@ const ProductCard:React.FC<IProductDto>=({ id, title, description, price, imageP
           </CardContent>
         <CardActions>
           <Button size="small">Details</Button>
+          {/* <Button size="small">Add to Cart</Button> */}
           <Button onClick={onDelete} size="small">Delete</Button>
-          <Button size="small">Add to Cart</Button>
           <Button size="small" onClick={handleEditClick}>Edit</Button>
         </CardActions>
       </Card>
