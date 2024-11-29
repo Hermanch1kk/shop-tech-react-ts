@@ -10,7 +10,7 @@ import CreateProduct from './components/products/CreateProduct';
 import EditProduct from './components/products/EditProduct';
 import { Register } from './components/accounts/Register';
 import ProtectedRoute from './components/ProtectedRoute';
-import Header from './components/Header';
+// import Header from './components/Header';
 import { login, logout } from './store/slices/userSlice';
 import { getTokenFromLocalStorage } from './helper/localStorage.helper';
 import { useAppDispatch, useAppSelector } from './store/hook';
